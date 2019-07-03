@@ -1,0 +1,13 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!--toolbar颜色 -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <!-- statusBar颜色 -->
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <!-- 控件默认颜色 -->
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+</resources>
