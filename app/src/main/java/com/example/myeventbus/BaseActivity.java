@@ -18,6 +18,7 @@ public class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //如果类被BindEventBus注解，则注册eventbus
         if(this.getClass().isAnnotationPresent(BindEventBus.class)){
             EventBus.getDefault().register(this);
         }
@@ -27,6 +28,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        //如果类被BindEventBus注解，则注销eventbus
         if(this.getClass().isAnnotationPresent(BindEventBus.class)){
             EventBus.getDefault().unregister(this);
         }

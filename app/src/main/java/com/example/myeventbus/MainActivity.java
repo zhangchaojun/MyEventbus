@@ -1,9 +1,7 @@
 package com.example.myeventbus;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.EventLog;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -23,30 +21,32 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        textview = findViewById(R.id.textView);
+
 
         EventBus.getDefault().post("hehe");
         EventBus.getDefault().post(2);
 
+
         findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this,Main2Activity.class));
+                startActivity(new Intent(MainActivity.this, Main2Activity.class));
             }
         });
-        textview = findViewById(R.id.textView);
     }
 
     @SuppressWarnings("unused")
-    @Subscribe(threadMode = ThreadMode.MAIN,sticky = true)
-    public void onEvent(Integer string){
-        Log.e(TAG, "onEvent: "+string );
-        textview.setText(""+string);
+    @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
+    public void onEvent(Integer string) {
+        Log.e(TAG, "onEvent: " + string);
+        textview.setText("" + string);
     }
 
 
     @Subscribe
-    public void onGetStringEvent(String string){
-        Log.e(TAG, "onGetStringEvent:只收string "+string );
+    public void onGetStringEvent(String string) {
+        Log.e(TAG, "onGetStringEvent:只收string " + string);
     }
 
 
